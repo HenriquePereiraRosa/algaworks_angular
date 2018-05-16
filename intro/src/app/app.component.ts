@@ -6,11 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Application';
   nome = 'Henrique';
-  idade = 100;
+  idade = 27;
 
   getIdade() {
     return this.idade;
   }
+
+  adicionar() {
+    console.log(`Adicionando ${this.nome}`);
+  }
+
 }
