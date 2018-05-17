@@ -27,4 +27,8 @@ export class EmployeeCardComponent implements OnInit {
       backgroundColor: (this.employee.id % 2) === 0 ? 'lavender' : 'lavenderblush'};
   }
 
+  isAdmin() {
+    return this.employee.nome.startsWith('T');
+  }
+
 }

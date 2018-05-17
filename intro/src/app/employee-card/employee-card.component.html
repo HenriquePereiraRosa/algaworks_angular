@@ -1,7 +1,11 @@
 <div class="card" [ngStyle]="getCardStyles()">
     <img class="card-img-top" src="https://randomuser.me/api/portraits/women/{{employee.id}}.jpg" alt="Card image cap">
     <div class="card-body">
-      <h6 class="card-title">{{employee.nome}}</h6>
+      <h6 class="card-title">
+        <span class="badge" [ngClass]="{ 'badge-danger': isAdmin(), 'badge-dark': !isAdmin() }">
+          {{employee.nome}}
+        </span>
+      </h6>
       <a href="#" class="btn btn-primary">Go!</a>
     </div>
   </div>
