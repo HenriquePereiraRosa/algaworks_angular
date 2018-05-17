@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'Application';
   nome = 'Henrique';
   idade = 27;
+  added = false;
 
   getIdade() {
     return this.idade;
@@ -16,6 +17,7 @@ export class AppComponent {
 
   adicionar() {
     console.log(`Adicionando ${this.nome}`);
+    this.added = true;
   }
 
 }
