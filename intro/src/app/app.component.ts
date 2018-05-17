@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  lastId = 0;
   title = 'Application';
   nome = 'Henrique';
   idade = 27;
   added = false;
+  employees = [];
 
   getIdade() {
     return this.idade;
@@ -18,6 +20,10 @@ export class AppComponent {
   adicionar() {
     console.log(`Adicionando ${this.nome}`);
     this.added = true;
+    this.employees.push({
+      id: ++this.lastId, 
+      nome: this.nome
+    });
   }
 
 }
