@@ -1,4 +1,4 @@
-<div class="card" style="width: 8rem;">
+<div class="card" [ngStyle]="getCardStyles()">
     <img class="card-img-top" src="https://randomuser.me/api/portraits/women/{{employee.id}}.jpg" alt="Card image cap">
     <div class="card-body">
       <h6 class="card-title">{{employee.nome}}</h6>
