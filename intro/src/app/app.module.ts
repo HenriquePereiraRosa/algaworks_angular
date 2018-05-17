@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,
