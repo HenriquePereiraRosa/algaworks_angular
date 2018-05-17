@@ -30,14 +30,8 @@
 
 <div class="container">
   <div class="row" style="margin-top: 2em" style="margin-bottom: 2em">
-    <div class="col-2" *ngFor="let employee of employees">
-      <div class="card" style="width: 8rem;">
-        <img class="card-img-top" src="https://randomuser.me/api/portraits/women/{{employee.id}}.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h6 class="card-title">{{employee.nome}}</h6>
-          <a href="#" class="btn btn-primary">Go awhere</a>
-        </div>
-      </div>
+    <div class="col-2" *ngFor="let emp of employees">
+      <app-employee-card [obj]="emp"></app-employee-card>
     </div>
   </div>
 </div>

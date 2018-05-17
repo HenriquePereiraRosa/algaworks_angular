@@ -21,7 +21,7 @@ export class AppComponent {
     console.log(`Adicionando ${this.nome}`);
     this.added = true;
     this.employees.push({
-      id: ++this.lastId, 
+      id: ++this.lastId,
       nome: this.nome
     });
   }
