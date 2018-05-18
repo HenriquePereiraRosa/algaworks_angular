@@ -16,9 +16,4 @@ export class AppComponent {
   getIdade() {
     return this.idade;
   }
-
-  onAdd(employee) {
-    console.log(`Event captured:  ${employee}`);
-    this.employees.push(employee);
-  }
 }

@@ -9,15 +9,24 @@
 
   <div class="jumbotron">
     <h1 class="display-5">Hello, world!</h1>
-    <app-employee-form (addedEmployeeEvent)="onAdd($event)"></app-employee-form>
+    <p-tabView>
+        <p-tabPanel header="Header 1">
+           Content 1
+        </p-tabPanel>
+        <p-tabPanel header="Header 2">
+            Content 2
+        </p-tabPanel>
+        <p-tabPanel header="Header 3">
+            Content 3    
+        </p-tabPanel>
+    </p-tabView>
     <p>Idade = {{getIdade()}}</p>
   </div>
 </div>
 
 <div class="container">
   <div class="row" style="margin-top: 2em" style="margin-bottom: 2em">
-    <div class="col-2" *ngFor="let employee of employees">
-      <app-employee-card [obj]="employee"></app-employee-card>
+    <div class="col-2">
     </div>
   </div>
 </div>
