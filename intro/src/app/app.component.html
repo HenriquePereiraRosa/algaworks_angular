@@ -31,8 +31,25 @@
             <p-column field="descricao" header="Descrição"></p-column>
             <p-column class="col-data" field="dataVencimento" header="Vencimento"></p-column>
             <p-column class="col-data" field="dataPagamento" header="Pagamento"></p-column>
-            <p-column class="col-valor" field="valor" header="Valor"></p-column>
+            <p-column field="valor" header="Valor" styleClass="col-valor">
+              <ng-template let-lancamento="rowData" pTemplate="body">
+                <span [ngStyle]="{ display: lancamento.tipo === 'DESPESA' ? 'inline' : 'none' }"
+                  style="color: red">-</span>
+                <span [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">
+                  {{lancamento.valor}}
+                </span>
+              </ng-template>
+            </p-column>
+            <p-column stylelass="col-buttons"> 
+              <ng-template pTemplate="body">
+                <a pButton icon="fa-pencil" styleClass="buttons"></a>
+                <button pButton icon="fa-trash" ></button>
+              </ng-template>
+            </p-column>
         </p-dataTable>
+      </div>
+      <div class="ui-g-12">
+        <a pButton label="Novo Lancamento" styleClass="buttons"></a>
       </div>
 
     </div>
