@@ -1,0 +1,14 @@
+.navbar {
+    color: dimgray;
+    font-weight: bold;
+    padding: 1em;
+    background-color: dodgerblue;
+}
+
+.nav-toggle { 
+    color: white;
+}
+
+.nav-toggle:hover { 
+    color: darkgrey;
+}
