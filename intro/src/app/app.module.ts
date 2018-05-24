@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { ButtonModule } from 'primeng/components/button/button';
 import { DataTableModule } from 'primeng/components/datatable/datatable';
 import { TableModule } from 'primeng/table';
-import { TooltipModule } from 'primeng/components/tooltip/tooltip';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { AppComponent } from './app.component';
 @NgModule({
