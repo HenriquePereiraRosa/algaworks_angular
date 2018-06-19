@@ -6,9 +6,46 @@
         <h1>Novo Lançamento</h1>
       </div>
 
-      <div class="ui-g-16 ui-fluid">
+      <div class="ui-g-12">
+        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
         <label for="">Vencimento</label>
+        <p-calendar dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yy" [showIcon]=true></p-calendar>
+      </div>
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label for="">{{tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
+        <p-calendar dateFormat="dd/mm/yy" 
+          placeholder="dd/mm/yy" [showIcon]=true></p-calendar>
+      </div>
+      <div class="ui-g-12 ui-md-8 ui-fluid">
+        <label for="">Descrição</label>
         <input pInputText type="text">
       </div>
+      <div class="ui-g-12 ui-md-4 ui-fluid">
+        <label for="">Valor</label>
+        <input pInputText type="text" placeholder="R$ 0,00">
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label for="">Categoria</label>
+        <input pInputText type="text">
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label for="">Pessoa</label>
+        <input pInputText type="text">
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <label for="">Observação</label>
+        <textarea pInputTextarea rows="3"></textarea>
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" style="margin: 0.5%"></button>
+        <button pButton type="submit" class="ui-button-info" label="Novo" style="margin: 0.5%"></button>
+        <a href="">Retornar</a>
+      </div>
+
     </div>
   </form>
