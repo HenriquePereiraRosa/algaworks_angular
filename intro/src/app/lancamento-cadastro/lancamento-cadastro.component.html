@@ -2,6 +2,7 @@
   <form>
 
     <div class="ui-g">
+
       <div class="ui-g-12">
         <h1>Novo Lançamento</h1>
       </div>
@@ -29,12 +30,14 @@
         <input pInputText type="text" placeholder="R$ 0,00">
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
-        <label for="">Categoria</label>
-        <input pInputText type="text">
+        <label for="">Categoria {{categoria.value}}</label>
+        <p-dropdown [options]="categories" [autoWidth]=false [filter]=true
+          placeholder="Selecione a Categoria" #categoria></p-dropdown>
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label for="">Pessoa</label>
-        <input pInputText type="text">
+        <p-dropdown [options]="persons" [autoWidth]=false [filter]=true
+          placeholder="Selecione a Pessoa"></p-dropdown>
       </div>
       <div class="ui-g-12 ui-fluid">
         <label for="">Observação</label>
