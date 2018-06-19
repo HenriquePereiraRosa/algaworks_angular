@@ -34,7 +34,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,            // Enable Forms #fromAngular
     TabViewModule,
     InputTextModule,
     ButtonModule,
@@ -44,10 +44,10 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     InputTextareaModule,
     CalendarModule,
     SelectButtonModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,  // Solve some Rendering problems
     DropdownModule,
-    CurrencyMaskModule,
-    InputMaskModule
+    CurrencyMaskModule,       // Mask for Currency
+    InputMaskModule,          // To create an input Mask
   ],
   providers: [],
   bootstrap: [AppComponent]
