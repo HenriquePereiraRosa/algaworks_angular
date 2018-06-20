@@ -9,11 +9,7 @@
 
       <div class="ui-g-12">
         <p-selectButton [options]="tipos" #tipo name="selecao" ngModel
-          #selecao="ngModel" required></p-selectButton>
-        
-        <app-message [control]="selecao" error="required"
-        text="Campo obrigatório.">
-        </app-message> 
+          #selecao="ngModel" [(ngModel)]="default" required></p-selectButton>
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
