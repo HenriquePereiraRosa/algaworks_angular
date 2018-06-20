@@ -17,9 +17,9 @@
         <p-calendar dateFormat="dd/mm/yy" name="vencimento" ngModel #vencimento="ngModel" 
           placeholder="dd/mm/yy" [showIcon]=true required></p-calendar>
 
-          <app-message [control]="vencimento" error="required"
-            text="Campo obrigatório.">
-          </app-message> 
+        <app-message [control]="vencimento" error="required"
+          text="Campo obrigatório.">
+        </app-message> 
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -32,12 +32,12 @@
         <input pInputText type="text" name="descricao"
           ngModel #descricao="ngModel" required minlength="5">
           
-          <app-message [control]="descricao" error="required"
-            text="Campo obrigatório.">
-          </app-message>
-          <app-message [control]="descricao" error="minlength"
-            text="Número mínimo de caracteres: {{descricao.errors?.minlength?.requiredLength}}.">
-          </app-message>          
+        <app-message [control]="descricao" error="required"
+          text="Campo obrigatório.">
+        </app-message>
+        <app-message [control]="descricao" error="minlength"
+          text="Número mínimo de caracteres: {{descricao.errors?.minlength?.requiredLength}}.">
+        </app-message>          
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
@@ -46,9 +46,9 @@
           currencyMask [options]="{ prefix: 'R$', thousands: '.', decimal: ',', allowNegative: false}" 
           required>
           
-          <app-message [control]="valor" error="required"
-            text="Campo obrigatório.">
-          </app-message>
+        <app-message [control]="valor" error="required"
+          text="Campo obrigatório.">
+        </app-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
@@ -56,9 +56,9 @@
         <p-dropdown [options]="categories" name="categoria" ngModel [autoWidth]=false
          [filter]=true placeholder="Selecione a Categoria" #categoria="ngModel"></p-dropdown>
           
-          <app-message [control]="vencimento" error="required"
-            text="Campo obrigatório.">
-          </app-message>
+        <app-message [control]="vencimento" error="required"
+          text="Campo obrigatório.">
+        </app-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
@@ -67,9 +67,9 @@
           placeholder="Selecione a Pessoa" name="pessoa" ngModel 
           #pessoa="ngModel" required></p-dropdown>
           
-          <app-message [control]="pessoa" error="required"
-            text="Campo obrigatório.">
-          </app-message>
+        <app-message [control]="pessoa" error="required"
+          text="Campo obrigatório.">
+        </app-message>
       </div>
 
       <div class="ui-g-12 ui-fluid">
@@ -85,3 +85,4 @@
 
     </div>
   </form>
+</div>
