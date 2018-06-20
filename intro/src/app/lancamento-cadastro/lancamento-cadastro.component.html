@@ -25,7 +25,17 @@
         <label for="">Descrição</label>
         <input pInputText type="text" name="descricao"
           ngModel #descricao="ngModel" required minlength="5">
+
+          <div *ngIf="descricao.hasError('required') && descricao.dirty"
+            class="ui-message ui-messages-error">
+            Campo obrigatório.
+          </div>
+          <div *ngIf="descricao.hasError('minlength')  && descricao.dirty"
+            class="ui-message ui-messages-error">
+            Número mínimo de caracteres: {{descricao.errors.minlength.requiredLength}}.
+          </div>
       </div>
+
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label for="">Valor</label>
         <input pInputText type="text" placeholder="R$ 0,00"
