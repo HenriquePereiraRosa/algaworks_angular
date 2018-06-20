@@ -23,7 +23,8 @@
       </div>
       <div class="ui-g-12 ui-md-8 ui-fluid">
         <label for="">Descrição</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="descricao"
+          ngModel #descricao="ngModel" required minlength="5">
       </div>
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label for="">Valor</label>
