@@ -24,6 +24,7 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
+import { LancamentoGridComponent } from './lancamento-grid/lancamento-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { MessageComponent } from './message/message.component';
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
     MessageComponent,
+    LancamentoGridComponent,
   ],
   imports: [
     BrowserModule,
