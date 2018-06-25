@@ -18,16 +18,15 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     PessoasPesquisaComponent,
     PessoaCadastroComponent,
   ],
@@ -47,8 +46,10 @@ import { SharedModule } from './shared/shared.module';
     DropdownModule,
     CurrencyMaskModule,       // Mask for Currency
     InputMaskModule,          // To create an input Mask
+
     LancamentosModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
