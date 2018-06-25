@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +18,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { LancamentoGridComponent } from './lancamento-grid/lancamento-grid.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -35,7 +35,8 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
     BrowserAnimationsModule,  // Solve some Rendering problems
     DropdownModule,
     CurrencyMaskModule,       // Mask for Currency
-    InputMaskModule          // To create an input Mask
+    InputMaskModule,          // To create an input Mask
+    SharedModule
   ],
   declarations: [
     LancamentosPesquisaComponent,
