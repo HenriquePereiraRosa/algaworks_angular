@@ -22,6 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
+import { LancamentosModule } from './lancamentos/lancamentos.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,7 @@ import { MessageComponent } from './message/message.component';
     DropdownModule,
     CurrencyMaskModule,       // Mask for Currency
     InputMaskModule,          // To create an input Mask
+    LancamentosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
