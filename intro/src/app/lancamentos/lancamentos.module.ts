@@ -17,7 +17,7 @@ import { TabViewModule } from 'primeng/tabview';
 
 import { LancamentoGridComponent } from './lancamento-grid/lancamento-grid.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentoPesquisaComponent } from './lancamento-pesquisa/lancamento-pesquisa.component';
 import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
@@ -39,12 +39,12 @@ import { SharedModule } from './../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    LancamentosPesquisaComponent,
+    LancamentoPesquisaComponent,
     LancamentoCadastroComponent,
     LancamentoGridComponent
   ],
   exports: [
-  LancamentosPesquisaComponent,
+  LancamentoPesquisaComponent,
   LancamentoCadastroComponent
   ]
 })

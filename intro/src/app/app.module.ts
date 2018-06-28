@@ -1,3 +1,5 @@
+import { LancamentoService } from './lancamentos/lancamento.service';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -33,6 +35,8 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     FormsModule,            // Enable Forms #fromAngular
+    HttpModule,
+
     TabViewModule,
     InputTextModule,
     ButtonModule,
@@ -51,7 +55,7 @@ import { CoreModule } from './core/core.module';
     SharedModule,
     CoreModule
   ],
-  providers: [],
+  providers: [LancamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
