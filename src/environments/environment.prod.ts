@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://springbootintro.herokuapp.com',
+  apiUrl: 'springbootintro.herokuapp.com',
 
-  tokenWhitelistedDomains: [/localhost:8080/],
-  tokenBlacklistedRoutes: [/\/oauth\/token/]
+  tokenWhitelistedDomains: [new RegExp('springbootintro.herokuapp.com')],
+  tokenBlacklistedRoutes: [new RegExp('\/oauth\/token/')]
 };

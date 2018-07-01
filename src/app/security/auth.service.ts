@@ -21,7 +21,7 @@ export class AuthService {
           .append('Content-Type', 'application/x-www-form-ulrencoded')
           .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
 
-    const body = `username=${email}&password=${password}&grant type=password`;
+    const body = `username=${email}&password=${password}&grant_type=password`;
     console.log(body);
 
     return this.http.post<any>(this.oauthTokenUrl, body,
