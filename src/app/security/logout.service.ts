@@ -1,7 +1,7 @@
 import { environment } from './../../environments/environment';
-import { AuthHttp } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
+import { ApiHttp } from './api-http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class LogoutService {
 
   tokensRevokeUrl = `${environment.apiUrl}/tokens`;
 
-  constructor(private http: AuthHttp,
+  constructor(private http: ApiHttp,
               private auth: AuthService) { }
 
   logout() {

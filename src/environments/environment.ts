@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080'
-  //apiUrl: 'https://springbootintro.herokuapp.com'
+  apiUrl: 'http://localhost:8080',
+  // apiUrl: 'https://springbootintro.herokuapp.com',
+
+  tokenWhitelistedDomains: [/localhost:8080/],
+  tokenBlacklistedRoutes: [/\/oauth\/token/]
 };
 
 /*

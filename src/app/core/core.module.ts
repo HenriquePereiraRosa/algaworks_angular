@@ -1,10 +1,10 @@
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
-import { JwtHelper } from 'angular2-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { ErrorHandlerService } from './error-handler.service';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,11 +14,12 @@ import { PessoaService } from './../pessoas/pessoa.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { AuthService } from './../security/auth.service';
 import { NaoAutorizadoComponent } from './nao-autorizado';
+import { ApiHttp } from '../security/api-http';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule,
 
     ToastyModule.forRoot(),
@@ -38,7 +39,9 @@ import { NaoAutorizadoComponent } from './nao-autorizado';
     PessoaService,
     ErrorHandlerService,
     AuthService,
-    JwtHelper
+    ApiHttp,
+
+    JwtHelperService
   ]
 })
 export class CoreModule { }
