@@ -48,3 +48,7 @@
 .navbar-menuitem a:hover {
     color: white;
 }
+
+.navbar-menuitem.ativo {
+    background-color: darkgray;
+}

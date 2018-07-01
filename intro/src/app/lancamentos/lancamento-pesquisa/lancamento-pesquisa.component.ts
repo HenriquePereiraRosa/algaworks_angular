@@ -1,5 +1,6 @@
 import { LancamentoService } from './../lancamento.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'app-lancamento-pesquisa',
@@ -8,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LancamentoPesquisaComponent implements OnInit {
 
-  title = 'Application';
+  title = 'Lançamentos Application';
   nome = 'Henrique';
   idade = 27;
-  employees = [];
+
   lancamentos = [];
 
-  constructor(private lancamentoService: LancamentoService) { }
+  constructor(private lancamentoService: LancamentoService,
+    private toasty: ToastyService) { }
 
   ngOnInit() {
     this.pesquisar();

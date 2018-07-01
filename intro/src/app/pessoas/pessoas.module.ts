@@ -1,4 +1,3 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,10 +15,9 @@ import { ButtonModule } from 'primeng/components/button/button';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 
-import { LancamentoGridComponent } from './lancamento-grid/lancamento-grid.component';
-import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import { LancamentoPesquisaComponent } from './lancamento-pesquisa/lancamento-pesquisa.component';
-import { LancamentosRoutingModule } from './lancamento-routing.module';
+import { PessoaPesquisaComponent } from './pessoa-pesquisa/pessoa-pesquisa.component';
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { PessoaGridComponent } from './pessoa-grid/pessoa-grid.component';
 import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
@@ -38,18 +36,16 @@ import { SharedModule } from './../shared/shared.module';
     DropdownModule,
     CurrencyMaskModule,       // Mask for Currency
     InputMaskModule,          // To create an input Mask
-    SharedModule,
-    LancamentosRoutingModule,
-    RouterModule
+    SharedModule
   ],
   declarations: [
-    LancamentoPesquisaComponent,
-    LancamentoCadastroComponent,
-    LancamentoGridComponent
+    PessoaPesquisaComponent,
+    PessoaCadastroComponent,
+    PessoaGridComponent
   ],
   exports: [
-  LancamentoPesquisaComponent,
-  LancamentoCadastroComponent
+    PessoaPesquisaComponent,
+    PessoaCadastroComponent
   ]
 })
-export class LancamentosModule { }
+export class PessoasModule { }

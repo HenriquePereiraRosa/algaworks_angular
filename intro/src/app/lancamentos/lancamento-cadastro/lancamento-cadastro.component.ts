@@ -14,6 +14,7 @@ export class LancamentoCadastroComponent implements OnInit {
 
   default = 'RECEITA'; // Default value os selectButton
 
+  pessoas = [];
   categories = [];
 
   constructor() {

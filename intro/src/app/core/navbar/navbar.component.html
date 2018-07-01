@@ -8,9 +8,15 @@
   </div>
 
   <ul class="navbar-menu" [hidden]="!showMenu">
-    <li class="navbar-user">User</li>
-    <li class="navbar-menuitem"><a href="#">Lancamentos</a></li>
-    <li class="navbar-menuitem"><a href="#">Pessoas</a></li>
-    <li class="navbar-menuitem"><a href="#">Logout</a></li>
+    <li class="navbar-user">{{auth.jwtPayLoad?.nome}}</li>
+    <li class="navbar-menuitem"
+      *ngIf="auth.hasPermition('ROLE_PESQUISAR_LANCAMENTO')">
+      <a routerLink="/lancamento" routerLinkActive="ativo">Lancamentos</a></li>
+    <li class="navbar-menuitem"
+      *ngIf="auth.hasPermition('ROLE_PESQUISAR_PESSOA')">
+      <a routerLink="/pessoa" routerLinkActive="ativo">Pessoas</a></li>
+    <li class="navbar-menuitem">
+      <a href="#" (click)="logout()">Logout</a>
+    </li>
   </ul>
 </nav>

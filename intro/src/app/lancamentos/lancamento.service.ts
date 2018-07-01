@@ -1,5 +1,7 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { AuthHttp } from 'angular2-jwt';
+import { environment } from './../../environments/environment';
+import { Injectable, OnInit, Output } from '@angular/core';
+import { Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -8,15 +10,18 @@ import 'rxjs/add/operator/toPromise';
 })
 export class LancamentoService {
 
-  lancamentoUrl = 'https://springbootintro.herokuapp.com/lancamento';
+  lancamentoUrl: string;
 
-  constructor(private http: Http) { }
+  constructor(private http: AuthHttp) {
+    this.lancamentoUrl = `${environment.apiUrl}/lancamento`;
+    console.log(this.lancamentoUrl);
+  }
 
   pesquisar(): Promise<any> {
-    const headers = new Headers();
-    headers.append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
-
-    return this.http.get(`${this.lancamentoUrl}`, {headers})
-        .toPromise().then(response => response.json().content);
+    return this.http.get(`${environment.apiUrl}/lancamento`)
+        .toPromise().then(response => response.json().content)
+        .catch(error => {
+          alert(error);
+        });
   }
 }

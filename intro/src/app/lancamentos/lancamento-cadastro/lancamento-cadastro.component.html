@@ -63,7 +63,7 @@
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label for="">Pessoa</label>
-        <p-dropdown [options]="persons" [autoWidth]=false [filter]=true
+        <p-dropdown [options]="pessoas" [autoWidth]=false [filter]=true
           placeholder="Selecione a Pessoa" name="pessoa" ngModel 
           #pessoa="ngModel" required></p-dropdown>
           
@@ -80,7 +80,7 @@
       <div class="ui-g-12">
         <button pButton type="submit" label="Salvar" style="margin: 0.5%"></button>
         <button pButton type="submit" class="ui-button-info" label="Novo" style="margin: 0.5%"></button>
-        <a href="">Retornar</a>
+        <a routerLink="/lancamento">Retornar</a>
       </div>
 
     </div>

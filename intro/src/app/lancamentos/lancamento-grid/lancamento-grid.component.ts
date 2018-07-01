@@ -1,3 +1,4 @@
+import { AuthService } from './../../security/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class LancamentoGridComponent implements OnInit {
 
   @Input() lancamentos = [];
 
-  constructor() { }
+  constructor(auth: AuthService) { }
 
   ngOnInit() {
   }
