@@ -12,7 +12,7 @@ export class AuthService {
   jwtPayLoad: any;
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {
-    this.oauthTokenUrl = `${environment.apiUrl}/oauth/token`; // 'http://localhost:8080/oauth/token';
+    this.oauthTokenUrl = `${environment.apiUrl}/oauth/token`;
     this.loadToken();
    }
 
@@ -21,8 +21,11 @@ export class AuthService {
           .append('Content-Type', 'application/x-www-form-ulrencoded')
           .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
 
-    const body = `username=${email}&password=${password}&grant_type=password`;
+    // const body = `username=${email}&password=${password}&grant_type=password`;
+    const body = 'grant_type=password&username=admin@spring.com&password=admin';
     console.log(body);
+    console.log(email);
+    console.log(password);
 
     return this.http.post<any>(this.oauthTokenUrl, body,
                     {headers, withCredentials: true})
