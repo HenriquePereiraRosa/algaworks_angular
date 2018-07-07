@@ -1,20 +1,29 @@
-import { HttpClientModule } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
-import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { GrowlModule } from 'primeng/growl';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
+import { AuthService } from './../seguranca/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ToastyModule } from 'ng2-toasty';
-import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { PessoaService } from './../pessoas/pessoa.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
-import { AuthService } from './../security/auth.service';
-import { NaoAutorizadoComponent } from './nao-autorizado';
-import { ApiHttp } from '../security/api-http';
+import { CategoriaService } from './../categorias/categoria.service';
+import { DashboardService } from './../dashboard/dashboard.service';
+import { RelatoriosService } from './../relatorios/relatorios.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NaoAutorizadoComponent } from './nao-autorizado.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { ApiHttp } from '../seguranca/api-http';
+
+registerLocaleData(localePt);
 
 @NgModule({
   imports: [
@@ -22,8 +31,8 @@ import { ApiHttp } from '../security/api-http';
     HttpClientModule,
     RouterModule,
 
-    ToastyModule.forRoot(),
-    ConfirmDialogModule
+    GrowlModule,
+    ConfirmDialogModule,
   ],
   declarations: [
     NavbarComponent,
@@ -32,16 +41,24 @@ import { ApiHttp } from '../security/api-http';
   ],
   exports: [
     NavbarComponent,
-    ToastyModule,
+    GrowlModule,
+    ConfirmDialogModule
   ],
   providers: [
     LancamentoService,
     PessoaService,
+    CategoriaService,
+    DashboardService,
+    RelatoriosService,
     ErrorHandlerService,
     AuthService,
     ApiHttp,
 
-    JwtHelperService
+    ConfirmationService,
+    MessageService,
+    JwtHelperService,
+    Title,
+    { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
 export class CoreModule { }

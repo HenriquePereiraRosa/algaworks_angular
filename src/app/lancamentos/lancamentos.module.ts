@@ -1,55 +1,50 @@
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
-import { TooltipModule } from 'primeng/tooltip';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { CalendarModule } from 'primeng/calendar';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DropdownModule } from 'primeng/dropdown';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { InputMaskModule } from 'primeng/inputmask';
-import { DataTableModule } from 'primeng/components/datatable/datatable';
-import { ButtonModule } from 'primeng/components/button/button';
-import { InputTextModule } from 'primeng/components/inputtext/inputtext';
-import { TabViewModule } from 'primeng/tabview';
+import { DropdownModule } from 'primeng/dropdown';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TooltipModule } from 'primeng/tooltip';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
-import { LancamentoGridComponent } from './lancamento-grid/lancamento-grid.component';
-import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import { LancamentoPesquisaComponent } from './lancamento-pesquisa/lancamento-pesquisa.component';
-import { LancamentosRoutingModule } from './lancamento-routing.module';
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
 import { SharedModule } from './../shared/shared.module';
+import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,            // Enable Forms #fromAngular
+    FormsModule,
+    ReactiveFormsModule,
+
     InputTextModule,
     ButtonModule,
-    DataTableModule,
-    TabViewModule,
+    TableModule,
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
     SelectButtonModule,
-    BrowserAnimationsModule,  // Solve some Rendering problems
     DropdownModule,
-    CurrencyMaskModule,       // Mask for Currency
-    InputMaskModule,          // To create an input Mask
+    CurrencyMaskModule,
+    FileUploadModule,
+    ProgressSpinnerModule,
+
     SharedModule,
-    LancamentosRoutingModule,
-    RouterModule
+    LancamentosRoutingModule
   ],
   declarations: [
-    LancamentoPesquisaComponent,
     LancamentoCadastroComponent,
-    LancamentoGridComponent
+    LancamentosPesquisaComponent
   ],
-  exports: [
-  LancamentoPesquisaComponent,
-  LancamentoCadastroComponent
-  ]
+  exports: []
 })
 export class LancamentosModule { }

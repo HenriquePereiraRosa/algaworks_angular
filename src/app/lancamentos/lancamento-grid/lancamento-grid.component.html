@@ -16,7 +16,7 @@
     <ng-template pTemplate="body">
       <a pButton icon="fas fa-pencil" styleClass="buttons" pTooltip="Editar" tooltipPosition="top"></a>
       <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"
-      [disabled]="!auth.hasPermition('ROLE_REMOVER_LANCAMENTO')"></button>
+      [disabled]="!auth.temPermissao('ROLE_REMOVER_LANCAMENTO')"></button>
     </ng-template>
   </p-column>
 </p-dataTable>

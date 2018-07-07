@@ -5,27 +5,26 @@ import { ErrorHandlerService } from './../../core/error-handler.service';
 import { AuthService } from './../auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
+export class LoginFormComponent {
 
-export class LoginComponent implements OnInit {
-
-  constructor(private auth: AuthService,
+  constructor(
+    private auth: AuthService,
     private errorHandler: ErrorHandlerService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
-  ngOnInit() {
-  }
-
-  login(user: string, password: string) {
-    this.auth.login(user, password)
+  login(usuario: string, senha: string) {
+    this.auth.login(usuario, senha)
       .then(() => {
-        this.router.navigate(['/lancamento']);
+        this.router.navigate(['/dashboard']);
       })
       .catch(erro => {
         this.errorHandler.handle(erro);
       });
   }
+
 }

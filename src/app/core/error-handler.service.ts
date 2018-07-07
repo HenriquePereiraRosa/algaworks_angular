@@ -1,14 +1,15 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ToastyService } from 'ng2-toasty';
-import { NotAuthenticatedError } from './../security/api-http';
+
+import { NotAuthenticatedError } from '../seguranca/api-http';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Injectable()
 export class ErrorHandlerService {
 
   constructor(
-    private toasty: ToastyService,
+    private messageService: MessageService,
     private router: Router
   ) { }
 
@@ -19,7 +20,9 @@ export class ErrorHandlerService {
       msg = errorResponse;
 
     } else if (errorResponse instanceof NotAuthenticatedError) {
-      msg = 'Sua sessão expirou';
+      msg = 'Sua sessão expirou!';
+      this.router.navigate(['/login']);
+
     } else if (errorResponse instanceof HttpErrorResponse
         && errorResponse.status >= 400 && errorResponse.status <= 499) {
       msg = 'Ocorreu um erro ao processar a sua solicitação';
@@ -32,13 +35,14 @@ export class ErrorHandlerService {
         msg = errorResponse.error[0].mensagemUsuario;
       } catch (e) { }
 
-      console.error(`ERRO: ${JSON.stringify(errorResponse)}`);
+      console.error('Ocorreu um erro', errorResponse);
 
     } else {
       msg = 'Erro ao processar serviço remoto. Tente novamente.';
-      console.error(`ERRO: ${JSON.stringify(errorResponse)}`);
+      console.error('Ocorreu um erro', errorResponse);
     }
 
-    this.toasty.error(msg);
+    this.messageService.add({ severity: 'error', detail: msg });
   }
+
 }
