@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 import 'rxjs/add/operator/toPromise';
+
 import { environment } from './../../environments/environment';
 
 @Injectable()
@@ -16,16 +17,14 @@ export class AuthService {
     this.loadToken();
    }
 
-  login(email: string, password: string): Promise<void> {
+  login(user: string, password: string): Promise<void> {
     const headers = new HttpHeaders()
           .append('Content-Type', 'application/x-www-form-ulrencoded')
           .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
 
-    // const body = `username=${email}&password=${password}&grant_type=password`;
-    const body = 'grant_type=password&username=admin@spring.com&password=admin';
-    console.log(body);
-    console.log(email);
-    console.log(password);
+    const body = `username=${user}&password=${password}&grant_type=password`;
+    console.log(`BODY: ${body}`);
+    console.log(`HEADERS: ${JSON.stringify(headers)}`);
 
     return this.http.post<any>(this.oauthTokenUrl, body,
                     {headers, withCredentials: true})
@@ -41,6 +40,8 @@ export class AuthService {
             return Promise.reject('Usuário ou senha inválidos!');
           }
         }
+        // DEBUG
+        console.log('=============Erro no login================');
         return Promise.reject(response);
       });
   }
@@ -98,8 +99,8 @@ export class AuthService {
     });
   }
 
-  isAccessTokenValid() {
+  isAccessTokenInvalid() {
     const token = localStorage.getItem('token');
-    return token || !this.jwtHelper.isTokenExpired(token);
+    return !token || this.jwtHelper.isTokenExpired(token);
   }
 }

@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
-import { AuthService } from './../auth.service';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ErrorHandlerService } from './../../core/error-handler.service';
+import { AuthService } from './../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(email: string, password: string) {
-    this.auth.login(email, password)
+  login(user: string, password: string) {
+    this.auth.login(user, password)
       .then(() => {
-        // this.router.navigate(['/lancamento']);
+        this.router.navigate(['/lancamento']);
       })
       .catch(erro => {
         this.errorHandler.handle(erro);

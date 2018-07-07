@@ -32,11 +32,11 @@ export class ErrorHandlerService {
         msg = errorResponse.error[0].mensagemUsuario;
       } catch (e) { }
 
-      console.error('Ocorreu um erro', errorResponse);
+      console.error(`ERRO: ${JSON.stringify(errorResponse)}`);
 
     } else {
       msg = 'Erro ao processar serviço remoto. Tente novamente.';
-      console.error('Ocorreu um erro', errorResponse);
+      console.error(`ERRO: ${JSON.stringify(errorResponse)}`);
     }
 
     this.toasty.error(msg);

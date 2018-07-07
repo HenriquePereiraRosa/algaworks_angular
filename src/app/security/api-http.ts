@@ -46,19 +46,19 @@ export class ApiHttp extends HttpClient {
   }
 
   private fazerRequisicao<T>(fn: Function): Observable<T> {
-    if (this.auth.isAccessTokenValid()) {
-        return fn();
-    } else {
-        console.log('Requisição HTTP com access token inválido. Obtendo novo token...');
+    if (this.auth.isAccessTokenInvalid()) {
+        console.log('Requisição HTTP com access token inválida. Obtendo novo token...');
 
         const newAccessToken = this.auth.getNewAccessToken()
           .then(() => {
-            if (this.auth.isAccessTokenValid()) {
+            if (this.auth.isAccessTokenInvalid()) {
               throw new NotAuthenticatedError();
             }
             return fn().toPromise();
           });
         return observableFromPromise(newAccessToken);
+    } else {
+      return fn();
     }
   }
 

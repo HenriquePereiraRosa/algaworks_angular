@@ -7,9 +7,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(private auth: AuthService,
@@ -17,20 +15,20 @@ export class AuthGuard implements CanActivate {
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot)
                     : Observable<boolean> | Promise<boolean> | boolean {
-      if (this.auth.isAccessTokenValid()) {
-        if (next.data.role === !this.auth.hasAnyPermition(next.data.roles)) {
-          this.router.navigate(['/nao-autorizado']);
-          return false;
-        }
-      } else {
+      if (this.auth.isAccessTokenInvalid()) {
         console.log('Navegação com access token inválido. Obtendo novo token...');
+
         return this.auth.getNewAccessToken()
-        .then(() => {
-          if (!this.auth.isAccessTokenValid()) {
-            this.router.navigate(['/login']);
+          .then(() => {
+            if (this.auth.isAccessTokenInvalid()) {
+              this.router.navigate(['/login']);
+              return false;
+            }
             return true;
-          }
-        });
+          });
+      } else if (next.data.roles && !this.auth.hasAnyPermition(next.data.roles)) {
+        this.router.navigate(['/nao-autorizado']);
+        return false;
       }
     return true;
   }

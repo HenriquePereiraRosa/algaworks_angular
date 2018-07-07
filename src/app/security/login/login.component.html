@@ -10,8 +10,8 @@
 
         <div class="ui-g-12">
           <label for="email">Email</label>
-          <input pInputText type="email" name="email" placeholder="E-mail"
-            ngModel #email required>
+          <input pInputText type="email" name="user" placeholder="E-mail"
+            ngModel #user required>
         </div>
 
         <div class="ui-g-12">
@@ -22,7 +22,7 @@
 
         <div class="ui-g-12">
           <button pButton type="submit" label="Login" [disabled]="!f.valid"
-          (click)="login(email.value, password.value)"></button>
+          (click)="login(user.value, password.value)"></button>
         </div>
       </div>
     </div>
