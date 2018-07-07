@@ -17,33 +17,48 @@ export class AuthService {
     this.loadToken();
    }
 
-  login(user: string, password: string): Promise<void> {
+   login(user: string, password: string): Promise<void> {
     const headers = new HttpHeaders()
-          .append('Content-Type', 'application/x-www-form-ulrencoded')
-          .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
+        .append('Content-Type', 'application/x-www-form-urlencoded')
+        .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
 
     const body = `username=${user}&password=${password}&grant_type=password`;
-    console.log(`BODY: ${body}`);
-    console.log(`HEADERS: ${JSON.stringify(headers)}`);
 
     return this.http.post<any>(this.oauthTokenUrl, body,
-                    {headers, withCredentials: true})
+        { headers, withCredentials: true })
       .toPromise()
       .then(response => {
-        console.log(response);
         this.saveToken(response.access_token);
       })
       .catch(response => {
-        console.log(response);
         if (response.status === 400) {
-          if (response.error() === 'invalid_grant') {
-            return Promise.reject('Usuário ou senha inválidos!');
+          if (response.error === 'invalid_grant') {
+            return Promise.reject('Usuário ou senha inválida!');
           }
         }
-        // DEBUG
-        console.log('=============Erro no login================');
         return Promise.reject(response);
       });
+  }
+
+  getNewAccessToken(): Promise<void> {
+    const headers = new HttpHeaders()
+          .append('Content-Type', 'application/x-www-form-urlenconded')
+          .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
+
+    const body = 'grant_type=refresh_token';
+
+    return this.http.post<any>(this.oauthTokenUrl, body,
+                    {headers, withCredentials: true})
+    .toPromise()
+    .then(response => {
+      this.saveToken(response.access_token);
+      console.log('Access_token renovado!');
+      return Promise.resolve(null);
+    })
+    .catch(response => {
+      console.log('Erro ao renovar token.', response);
+      return Promise.resolve(null);
+    });
   }
 
   private saveToken(token: string) {
@@ -76,27 +91,6 @@ export class AuthService {
       }
     }
     return false;
-  }
-
-  getNewAccessToken(): Promise<void> {
-    const headers = new HttpHeaders()
-          .append('Content-Type', 'application/x-www-form-urlenconded')
-          .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');
-
-    const body = 'grant_type=refresh_token';
-
-    return this.http.post<any>(this.oauthTokenUrl, body,
-                    {headers, withCredentials: true})
-    .toPromise()
-    .then(response => {
-      this.saveToken(response.access_token);
-      console.log('Access_token renovado!');
-      return Promise.resolve(null);
-    })
-    .catch(response => {
-      console.log('Erro ao renovar token.', response);
-      return Promise.resolve(null);
-    });
   }
 
   isAccessTokenInvalid() {

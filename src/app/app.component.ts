@@ -11,14 +11,9 @@ import { ToastyConfig } from 'ng2-toasty';
 
 export class AppComponent {
 
-  constructor(private toastyConfig: ToastyConfig,
-    private router: Router) {
-    this.toastyConfig.theme = 'bootstrap';
-    }
+  constructor(private router: Router) {}
 
   showNavBar() {
-    // DEBUG TODO: REMOVE
-    console.log(this.router.url);
     return this.router.url !== 'login';
   }
 }
