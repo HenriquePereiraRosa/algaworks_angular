@@ -38,6 +38,7 @@ export class PessoasPesquisaComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.pessoas = resultado.pessoas;
+        console.log(`PESSOAS: ${JSON.stringify(resultado)}`);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

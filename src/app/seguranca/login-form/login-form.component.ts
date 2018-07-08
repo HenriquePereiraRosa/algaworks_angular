@@ -11,11 +11,9 @@ import { AuthService } from './../auth.service';
 })
 export class LoginFormComponent {
 
-  constructor(
-    private auth: AuthService,
+  constructor(private auth: AuthService,
     private errorHandler: ErrorHandlerService,
-    private router: Router
-  ) { }
+    private router: Router) { }
 
   login(usuario: string, senha: string) {
     this.auth.login(usuario, senha)
