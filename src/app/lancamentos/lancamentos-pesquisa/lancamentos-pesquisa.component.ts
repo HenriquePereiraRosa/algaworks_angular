@@ -40,7 +40,7 @@ export class LancamentosPesquisaComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.lancamentos = resultado.lancamentos;
-        console.log(`PESSOAS: ${JSON.stringify(resultado)}`);
+        console.log(`LANÇAMENTOS: ${JSON.stringify(resultado)}`);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
