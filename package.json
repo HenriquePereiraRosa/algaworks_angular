@@ -1,5 +1,5 @@
 {
-  "name": "algaworks angular",
+  "name": "algaworks_angular",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -51,9 +52,7 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "2.7.2",
-    "@angular-devkit/build-angular": "~0.6.8",
-    "postinstall": "ng build --prod"
-
+    "@angular-devkit/build-angular": "~0.6.8"
   },
   "devDependencies": {
   },
