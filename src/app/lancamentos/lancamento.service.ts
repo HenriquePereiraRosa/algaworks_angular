@@ -30,8 +30,7 @@ export class LancamentoService {
   }
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
-    let params = new HttpParams({
-      fromObject: {
+    let params = new HttpParams({fromObject: {
         page: filtro.pagina.toString(),
         size: filtro.itensPorPagina.toString()
       }
