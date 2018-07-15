@@ -42,6 +42,8 @@ export class PessoaService {
       .toPromise()
       .then(response => {
         const pessoas = response.content;
+        // DEBUG
+        console.log(`REPONSE: ${response}`);
 
         const resultado = {
           pessoas,
