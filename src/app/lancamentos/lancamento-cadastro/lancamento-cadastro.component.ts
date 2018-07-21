@@ -50,6 +50,9 @@ export class LancamentoCadastroComponent implements OnInit {
 
     if (idLancamento) {
       this.carregarLancamento(idLancamento);
+    } else {
+      // DEBUG todo: remover!!!
+      console.log(`idLancamento = null: ${idLancamento}`);
     }
 
     this.carregarCategorias();
