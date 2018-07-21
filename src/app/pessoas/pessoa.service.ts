@@ -41,8 +41,6 @@ export class PessoaService {
     return this.http.get<any>(`${this.pessoasUrl}`, { params })
       .toPromise()
       .then(response => {
-        // DEBUG
-        console.log(`RESPOSTA: ${response}`);
         const pessoas = response.content;
 
         const resultado = {
