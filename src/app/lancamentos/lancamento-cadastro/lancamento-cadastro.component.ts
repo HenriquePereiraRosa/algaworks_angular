@@ -50,6 +50,9 @@ export class LancamentoCadastroComponent implements OnInit {
 
     if (idLancamento) {
       this.carregarLancamento(idLancamento);
+    } else {
+      // DEBUG todo: remover!!!
+      console.log(`idLancamento = null: ${idLancamento}`);
     }
 
     this.carregarCategorias();
@@ -203,7 +206,7 @@ export class LancamentoCadastroComponent implements OnInit {
       this.lancamento = new Lancamento();
     }.bind(this), 1);
 
-    this.router.navigate(['/lancamento/novo']);
+    this.router.navigate(['/lancamentos/novo']);
   }
 
   atualizarTituloEdicao() {

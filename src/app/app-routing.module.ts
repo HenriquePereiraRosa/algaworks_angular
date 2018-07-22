@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'lancamentos', loadChildren: 'app/lancamentos/lancamentos.module#LancamentosModule' },
   { path: 'pessoas', loadChildren: 'app/pessoas/pessoas.module#PessoasModule' },
   { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule'},
-  { path: 'relatorio', loadChildren: 'app/relatorios/relatorios.module#RelatoriosModule' },
+  { path: 'relatorios', loadChildren: 'app/relatorios/relatorios.module#RelatoriosModule' },
 
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // ToDo: move to dashboard
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
