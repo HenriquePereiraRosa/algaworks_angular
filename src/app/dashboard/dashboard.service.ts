@@ -25,6 +25,10 @@ export class DashboardService {
       .toPromise()
       .then(response => {
         const dados = response;
+
+        // DEBUG
+        console.log(`DADOS: ${JSON.stringify(dados)}`);
+
         this.converterStringsParaDatas(dados);
 
         return dados;

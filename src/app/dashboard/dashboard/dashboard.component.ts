@@ -98,12 +98,11 @@ export class DashboardComponent implements OnInit {
   }
 
   private configurarDiasMes() {
-    const mesReferencia = new Date();
-    mesReferencia.setMonth(mesReferencia.getMonth() + 1);
-    mesReferencia.setDate(0);
+    // const mesReferencia = new Date();
+    // mesReferencia.setMonth(mesReferencia.getMonth() + 1);
+    // mesReferencia.setDate(0);
 
-    const quantidade = mesReferencia.getDate();
-
+    const quantidade = 31;
     const dias: number[] = [];
 
     for (let i = 1; i <= quantidade; i++) {
